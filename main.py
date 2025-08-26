@@ -9,6 +9,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Avoids a warning
 db.init_app(app)
 
+menus = ['Chapter 1', 'Chapter 2', 'Chapter 3']
 
 @app.route('/')
 @app.route('/index')
@@ -23,7 +24,7 @@ def index():
         db.session.add(new_entry)
         
         db.session.commit()
-    return render_template('index.html', title='Главная (templates)',
+    return render_template('index.html', menus=menus, title='Главная (templates)',
                             content='<h1>Template index page</h1>',
                           )
 

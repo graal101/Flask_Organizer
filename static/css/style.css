@@ -1,3 +1,24 @@
 .container{
-color: blue;
+color: black;
+/*background: silver;*/
+}
+ul.mainmenu {
+    list-style: none;
+    background: #3F4137;
+    height: 60px;
+    margin: 0;
+    padding: 0;
+    color: #fdc073;
+    font-size: 20px;
+    overflow: hidden;
+}
+ul.mainmenu li {
+    float: left;
+    margin: 18px 40px 0 50px;
+}
+
+.menu-container {
+    display: flex; /* Используем flexbox для выравнивания */
+    align-items: center; /* Центрируем элементы по вертикали */
+    background: #3F4137;
 }
