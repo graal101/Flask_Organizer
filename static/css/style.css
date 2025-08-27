@@ -3,18 +3,19 @@ color: black;
 /*background: silver;*/
 }
 ul.mainmenu {
-    list-style: none;
-    background: #3F4137;
-    height: 60px;
-    margin: 0;
-    padding: 0;
-    color: #fdc073;
-    font-size: 20px;
-    overflow: hidden;
+    list-style: none;    /*— убирает маркеры списка.*/
+    background: #3F4137; /*  — задает фоновый цвет для меню (темно-серый). */
+    height: 60px; /* — устанавливает высоту меню в 60 пикселей. */
+    margin: 0; /* — убирает внешние отступы.*/
+    padding: 0; /* — убирает внутренние отступы. */
+    color: #fdc073; /* — задает цвет текста (светло-оранжевый).*/
+    font-size: 20px; /*— устанавливает размер шрифта в 20 пикселей.*/
+    overflow: hidden; /* — скрывает содержимое, выходящее за пределы блока.*/
 }
 ul.mainmenu li {
     float: left;
-    margin: 18px 40px 0 50px;
+    margin: 18px 40px 0 50px; /* — задает отступы: 18 пикселей сверху, 40 пикселей справа, 0 пикселей 
+                            снизу и 50 пикселей слева.*/
 }
 
 .menu-container {

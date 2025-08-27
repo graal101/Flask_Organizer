@@ -13,3 +13,10 @@ class Guests(db.Model):
     user_agent = db.Column(db.Text, unique=False, nullable=True)
     ref = db.Column(db.String(200), unique=False, nullable=True)
     visittime = db.Column(db.DateTime, server_default=func.now())
+    
+    
+class Users(db.Model):
+    ids = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    name = db.Column(db.String(30), unique=False, nullable=False)
+    password = db.Column(db.String(50), unique=False, nullable=False)
+    email = db.Column(db.String(50), unique=False, nullable=True)

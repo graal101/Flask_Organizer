@@ -1,13 +1,23 @@
 #!/usr/bin/env python3
 from flask import Flask, render_template, request
+from flask_admin import Admin
+from flask_admin.contrib.sqla import ModelView
+from flask_babel import Babel
 
-from models import Guests, db
+from models import Users, Guests, db
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = '1111uouo111uo'
+app.config['SECRET_KEY'] = '1111uouohohouo'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///visitors.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False  # Avoids a warning
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['BABEL_DEFAULT_LOCALE'] = 'ru'
 db.init_app(app)
+
+babel = Babel(app)
+admin = Admin(app, name='Таблицы')
+admin.add_view(ModelView(Users, db.session, name='Участники'))
+admin.add_view(ModelView(Guests, db.session, name='Посетители'))
+
 
 menus = ['Chapter 1', 'Chapter 2', 'Chapter 3']
 
