@@ -2,6 +2,12 @@
 color: black;
 /*background: silver;*/
 }
+.login-container{
+     display: flex; /* Используем flexbox для выравнивания */
+    align-items: center; /* Центрируем элементы по вертикали */
+    justify-content: center;
+    font-family: Montserrat, sans-serif;
+}
 ul.mainmenu {
     list-style: none;    /*— убирает маркеры списка.*/
     background: #3F4137; /*  — задает фоновый цвет для меню (темно-серый). */
@@ -17,9 +23,36 @@ ul.mainmenu li {
     margin: 18px 40px 0 50px; /* — задает отступы: 18 пикселей сверху, 40 пикселей справа, 0 пикселей 
                             снизу и 50 пикселей слева.*/
 }
+.menu-link { /* Стиль ссылок в меню баре */
+    color: #fdc073;
+    text-decoration: none;
+}
 
 .menu-container {
     display: flex; /* Используем flexbox для выравнивания */
     align-items: center; /* Центрируем элементы по вертикали */
     background: #3F4137;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+input {
+    margin: 10px 0;
+    padding: 10px;
+    border: unset;
+    border-bottom: 1px solid #e3e3e3;
+    outline: none; /* Убирает рамку при активации */
+}
+
+button {
+    margin: 10px 0;
+    background: #e3e3e3;
+    border: unset;
+    cursor: pointer;
 }

@@ -1,7 +1,8 @@
 """Model."""
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func
-from sqlalchemy import  DateTime
+from sqlalchemy import DateTime
+
 
 db = SQLAlchemy()
 
@@ -16,6 +17,8 @@ class Guests(db.Model):
     
     
 class Users(db.Model):
+    """Пользователи зарегистрированные."""
+    
     ids = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(30), unique=False, nullable=False)
     password = db.Column(db.String(50), unique=False, nullable=False)

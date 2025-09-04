@@ -1,0 +1,25 @@
+<!--
+   login.html
+-->
+{% extends "base.html"%}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<h2 class='login-container'>Введите логин/пароль</h2>
+      <br>
+
+   <div class='login-container'>
+      
+    <form method="post">
+        <label for="username">Никнейм:</label>
+        <input type="text" placeholder="Введите логин" id="username" name="username" required>
+        <br>
+        <label for="password">Пароль: </label>
+        <input type="password" placeholder="Введите пароль"id="password" name="password" required>
+        <br>
+        <input type="submit" value="Войти">
+        <p>Нет аккаунта - <a href="#">Зарегистрироваться</a></p>
+    </form>
+    </div>
+{% endblock %}
+ 
