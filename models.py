@@ -8,7 +8,8 @@ db = SQLAlchemy()
 
 class Guests(db.Model):
     """Reg of unique customers."""
-
+    
+    __tablename__ = 'guests' 
     ids = db.Column(db.Integer, primary_key=True, autoincrement=True)
     ip = db.Column(db.String(20), unique=False, nullable=True)
     user_agent = db.Column(db.Text, unique=False, nullable=True)
@@ -19,7 +20,19 @@ class Guests(db.Model):
 class Users(db.Model):
     """Пользователи зарегистрированные."""
     
+    __tablename__ = 'users' 
     ids = db.Column(db.Integer, primary_key=True, autoincrement=True)
     name = db.Column(db.String(30), unique=False, nullable=False)
     password = db.Column(db.String(50), unique=False, nullable=False)
-    email = db.Column(db.String(50), unique=False, nullable=True)
+
+
+class Todolist(db.Model):
+    """Таблица для записей списков дел."""
+    
+    __tablename__ = 'todolist'
+    ids = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    category = db.Column(db.String(50), unique=False, nullable=True)
+    note = db.Column(db.Text, unique=False, nullable=True)
+    is_done = db.Column(db.Boolean, default=False, nullable=False)
+    
+    
