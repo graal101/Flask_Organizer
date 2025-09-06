@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-from flask import Flask, render_template, request, url_for, flash, session, redirect
+from flask import Flask, flash, redirect, render_template, request, session, url_for
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
-from models import Users, Guests, Todolist, db
-
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, SubmitField
+from models import Guests, Todolist, Users, db
+from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired
+
 
 class LoginForm(FlaskForm):  # Вынести отдельно!
     username = StringField('Имя пользователя', validators=[DataRequired()])
@@ -20,31 +20,35 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///store.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
-#login_manager = LoginManager(app)
+# login_manager = LoginManager(app)
 csrf = CSRFProtect(app)
 
 with app.app_context():
     db.create_all()
     print('create')
-    
+
+
 @app.route('/')
 @app.route('/index')
 def index():
-    menus = {'Редактировать': url_for('index'), 'Анализ':'#', 'logout':'#'}
+    """Домашняя страница."""
+    menus = {'Редактировать': url_for('index'), 'Анализ': '#', 'logout': '#'}
     ip = request.headers.get('X-Real-IP')
     user_agent = request.user_agent.string
     ref = request.headers.get('Referer')
     new_entry = Guests(ip=ip, user_agent=user_agent, ref=ref)
     db.session.add(new_entry)
     db.session.commit()
-    return render_template('index.html', menus=menus, title='Главная (templates)',
+    return render_template(
+                            'index.html', menus=menus, title='Главная (templates)',
                             content='<h1>Template index page</h1>',
-                          )
+                           )
 
 
 @app.route('/logins', methods=['GET', 'POST'])
 def logins():
-    menus = {'Редактировать': url_for('index'), 'Анализ':'#', 'logout':'#'}
+    """Страница для авторизации."""
+    menus = {'Редактировать': url_for('index'), 'Анализ': '#', 'logout': '#'}
     form = LoginForm()
     if form.validate_on_submit():
         if form.username.data == 'admin' and form.password.data == 'admin':
