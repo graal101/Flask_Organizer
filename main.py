@@ -3,7 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, session, url
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 from flask_wtf import FlaskForm
-from models import Guests, Todolist, Users, db
+from models import Business, Guests, Health, Homedeal, Learning, Users, db
 from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired
 
@@ -40,9 +40,11 @@ def index():
     db.session.add(new_entry)
     db.session.commit()
     return render_template(
-                            'index.html', menus=menus, title='Главная (templates)',
-                            content='<h1>Template index page</h1>',
-                           )
+        'index.html',
+        menus=menus,
+        title='Главная (templates)',
+        content='<h1>Template index page</h1>',
+    )
 
 
 @app.route('/logins', methods=['GET', 'POST'])
@@ -57,8 +59,13 @@ def logins():
             return redirect(url_for('index'))
         else:
             flash('Неверное имя пользователя или пароль', 'danger')
-    return render_template('login.html', menus=menus, title='Вход на сайт',
-                            content='<h1>Template index page</h1>', form=form)
+    return render_template(
+        'login.html',
+        menus=menus,
+        title='Вход на сайт',
+        content='<h1>Template index page</h1>',
+        form=form
+    )
 
 
 if __name__ == '__main__':
