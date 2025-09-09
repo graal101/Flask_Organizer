@@ -3,7 +3,7 @@ from flask import Flask, flash, redirect, render_template, request, session, url
 from flask_login import LoginManager
 from flask_wtf.csrf import CSRFProtect
 from flask_wtf import FlaskForm
-from models import Business, Guests, Health, Homedeal, Learning, Users, db
+from models import Business, Guests, Health, Hobby, Homedeal, Learning, Users, db
 from wtforms import PasswordField, StringField, SubmitField
 from wtforms.validators import DataRequired
 
@@ -43,7 +43,7 @@ def index():
         'index.html',
         menus=menus,
         title='Главная (templates)',
-        content='<h1>Template index page</h1>',
+        content='Template index page',
     )
 
 

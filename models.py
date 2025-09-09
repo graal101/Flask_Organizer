@@ -68,3 +68,14 @@ class Business(db.Model):
     note = db.Column(db.Text, unique=False, nullable=True)
     is_done = db.Column(db.Boolean, default=False, nullable=False)
     record_time = db.Column(db.DateTime, server_default=func.now())
+
+
+class Hobby(db.Model):
+    """Увлечения."""
+
+    __tablename__ = 'hobby'
+    ids = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    task = db.Column(db.String(100), unique=False, nullable=False)
+    note = db.Column(db.Text, unique=False, nullable=True)
+    is_done = db.Column(db.Boolean, default=False, nullable=False)
+    record_time = db.Column(db.DateTime, server_default=func.now())
