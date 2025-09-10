@@ -26,11 +26,26 @@
    </nav>
    {% endblock %}
    <p id="top"></p>
-  {% block content %}{% endblock %}
+   
+   <aside>
+          <h2 class='container'>Задачи:</h2>
+          <br>
+         <ul>
+            <li><a href="#">Работа</a></li>
+            <li><a href="#">Учёба</a></li>
+            <li><a href="#">Дом</a></li>
+            <li><a href="#">Здоровье</a></li>
+            <li><a href="#">Увлечение</a></li>
+         </ul>
+         </aside>
+          <div class='container'>
+              {% block content %}{% endblock %}
+          </div>
+  
   {% block form %}{% endblock %}
   <footer>
    <hr>
-    <div class="container">
+    <div class='container'>
       <p>&copy; 2025 <a href="mailto:graal101@mail.ru">graal101@mail.ru</a>
        All rights reserved. <b>Written in Flask Python.</b> </p>
       <p><a href="#top">Наверх</a></p>

@@ -4,21 +4,9 @@
 {% extends "base.html"%}
 {% block title %}{{ title }}{% endblock %}
 {% block content %}
-   <div class='container'>
-      <aside>
-          <h2>Задачи:</h2>
-          <br>
-         <ul>
-            <li><a href="#">Работа</a></li>
-            <li><a href="#">Учёба</a></li>
-            <li><a href="#">Дом</a></li>
-            <li><a href="#">Здоровье</a></li>
-            <li><a href="#">Увлечение</a></li>
-         </ul>
-         </aside>
+  
          <div class='main-content'>
            <h1>{{ content|safe }}</h1>
          </div>
       
-   </div>
 {% endblock %}
